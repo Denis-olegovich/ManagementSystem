@@ -14,7 +14,7 @@ class ParamsSeeder extends Seeder
     {
         // 
      
-     DB::table('params')->delete();
+    DB::table('params')->delete();
 
     $params=[['name'=>'Название организации','value'=>'ООО “Дженерал Софт”'],
              ['name'=>'ФИО Директора','value'=>'Первененко Денис Олегович'],

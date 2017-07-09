@@ -19,13 +19,24 @@ class PageController extends Controller
 
       // dump($result);
        //dump($params);
-        $params = Parametr::where('id','<',3)->get();
-        dump($params);
+       // $params = Parametr::where('id','<',3)->get();
+        //dump($params);
 
-       // foreach ($params as $parametr) {
-        	# code...
-        //	echo $parametr->name.'<br />';
-       // }
-    	return view('page');
+      $params = Parametr::select('name','value')->where('id','<','3')->get();
+          //$parametr = Parametr::where('id','<',3)->get();
+    //  foreach ($parametr as $key) {
+       // echo $key -> name.'<br />';
+      //}
+
+      /*$parametr= new Parametr;
+      $parametr->name='Text1';
+      $parametr->value='Text2';
+      $parametr->save();*/ //сохранение
+      //$parametr=Parametr::find(5);
+     // $parametr->name='Text12';
+     // $parametr->value='Text22';
+     // $parametr->save();
+     // dump($parametr); пересохранение
+    	return view('page')->with(['params'=>$params]);
     }
 }

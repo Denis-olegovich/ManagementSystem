@@ -15,10 +15,7 @@ class ChangeUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             
-            $table->integer('position_id')->unsigned()->
-                                            nullable()->
-                                            change();
-            $table->index('position_id');
+           
             $table->foreign('position_id')->references('id')->
                                             on('positions')->
                                             onDelete('cascade')->
@@ -34,14 +31,16 @@ class ChangeUsersTable extends Migration
     public function down()
     { 
 
-       Schema::table('users', function (Blueprint $table) {
-        $table->dropForeign('users_position_id_foreign');
-        $table->dropColumn('position_id');
+      Schema::table('users', function (Blueprint $table) {
+       $table->dropForeign('users_position_id_foreign');
+       $table->dropColumn('position_id');
     });
-       // DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+
+       //Schema::dropIfExists('users');
+       //DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         //Schema::drop('position_id');
         //Schema::drop('users');       
-       // DB::statement('SET FOREIGN_KEY_CHECKS = 1');
+       //DB::statement('SET FOREIGN_KEY_CHECKS = 1');
 
 
     }

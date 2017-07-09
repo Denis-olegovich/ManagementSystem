@@ -26,7 +26,11 @@ class CreateUsersTable extends Migration
             $table->enum('isblocked',array('активный', 
                                            'заблокированный'))->default('активный');
             $table->rememberToken();
-            $table->timestamps();           
+            $table->timestamps();
+             $table->integer('position_id')->unsigned()->
+                                            nullable();
+                                           // change();
+            $table->index('position_id');         
             
         });
     }
@@ -38,9 +42,9 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-        $table->dropForeign('users_position_id_foreign');
-    });
+       // Schema::table('users', function (Blueprint $table) {
+       // $table->dropForeign('users_position_id_foreign');
+   // });
         Schema::dropIfExists('users');
     }
 }

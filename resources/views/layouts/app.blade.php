@@ -12,6 +12,11 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style type="text/css">
+        .content_parametr{
+            margin-left: 88px;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
@@ -52,6 +57,14 @@
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
+
+                                    <li>
+                                        <a href="{{ route('home') }}"
+                                            >
+                                           Ваш профиль
+                                        </a>
+                                    </li>
+
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
@@ -63,6 +76,7 @@
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
+                                   
                                 </ul>
                             </li>
                         @endif

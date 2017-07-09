@@ -31,8 +31,6 @@ class CreatePositionsTable extends Migration
     public function down()
     {
         //
-        //DB::statement('drop table positions cascade');
-         Schema::drop('users');
          Schema::drop('positions');
 
     }
