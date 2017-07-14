@@ -19,6 +19,7 @@ class CreatePositionsTable extends Migration
             $table->increments('id');
             $table->string('name',225);
             $table->string('name_rp',225);
+            $table->timestamps();
 
         });
     }

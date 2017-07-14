@@ -37,52 +37,72 @@ class HomeController extends Controller
                                    ]);
     }
 
-    public function add_parameter(Request $request){
+    public function postParameter(Request $request){
 
-        $this->validate($request,[
-                 'name' => 'required|max:200',
-                 'value' => 'required|max:200'
-            ]);
+        //dump($request); 
+
+        $this->validate($request,['name' => 'required|max:200',
+                                  'value' => 'required|max:200'
+                                  ]);
+
         $date = $request->all();
         $parameter = new Parametr;
         $parameter -> fill($date);
         $parameter -> save();
 
         return redirect('/home');
-
     }
 
-    public function delete_parameter(Request $request){
+    public function deleteParameter(Request $request){
+
+        //dump($request);
 
         $parameter_id = $request->parameter_id;
-        $parameter_tmp = Parametr::where('id',$parameter_id)->first;
+        $parameter_tmp = Parametr::where('id',$parameter_id);
         $parameter_tmp ->delete();
+
+        return redirect('/home');
     }
 
-    //public function update_parameter(){
+    public function getParameter(Request $request){
 
-   // }
+        dump($request);
 
-    public function add_position(Request $request){
+
+
+    }
+
+    public function postPosition(Request $request){
+
+        //dump($request);  
 
         $this->validate($request,[
-                 'name' => 'required|max:200',
-                 'name_rp' => 'required|max:200'
+                 'name' => 'max:200',
+                 'name_rp' => 'max:200'
             ]);
+
         $date = $request->all();
-        dump($date);
-        //$position = new Position;
-        //$position -> fill($date);
-        //$position -> save();
+        $position = new Position;
+        $position -> fill($date);
+        $position -> save();
 
-        //return redirect('/home');
+        return redirect('/home');
     }
 
-    public function delete_position(Request $request){
+    public function deletePosition(Request $request){
+        
+        //dump($request);
 
+        $position_id = $request->position_id;
+        $position_tmp = Position::where('id',$position_id);
+        $position_tmp->delete();
+
+        return redirect('/home');
     }
 
-    public function update_parameter(){
+    public function update_parameter(Request $request){
+
+        dump($request);
 
     }
 

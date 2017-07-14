@@ -12,13 +12,13 @@
 */
 
 Route::get('/','PageController@page')->name('page');
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::post('/home/add_parameter','HomeController@add_parameter')->name('home_add_parameter');
-Route::delete('/home/delete_parameter','HomeController@index')->name('home_delete_parameter');
-//Route::post('/home/','HomeController@update_parameter')->name('home_update_parameter');
+Route::post('/home/add_parameter','HomeController@postParameter')->name('parameter:add');
+Route::delete('/home/delete_parameter','HomeController@deleteParameter')->name('parameter:delete');
+Route::get('/home/update_parameter','HomeController@getParameter')->name('parameter:update');
 
-Route::post('/home/add_position','HomeController@add_position')->name('home_add_position');
-Route::delete('/home/delete_position','HomeController@delete_position')->name('home_delete_position');
+Route::post('/home/add_position','HomeController@postPosition')->name('position:add');
+Route::delete('/home/delete_position','HomeController@deletePosition')->name('position:delete');
+Route::get('/home/update_position','HomeController@getPosition')->name('position:update');
