@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\Parametr;
+use App\User;
+use App\Position;
 
 class PageController extends Controller
 {
