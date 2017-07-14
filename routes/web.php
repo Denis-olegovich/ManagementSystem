@@ -17,8 +17,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/home/add_parameter','HomeController@postParameter')->name('parameter:add');
 Route::delete('/home/delete_parameter','HomeController@deleteParameter')->name('parameter:delete');
-Route::get('/home/update_parameter','HomeController@getParameter')->name('parameter:update');
+Route::post('/home/update_parameter','HomeController@postParameter_update')->name('parameter:update');
 
 Route::post('/home/add_position','HomeController@postPosition')->name('position:add');
 Route::delete('/home/delete_position','HomeController@deletePosition')->name('position:delete');
-Route::get('/home/update_position','HomeController@getPosition')->name('position:update');
+Route::post('/home/update_position','HomeController@postPosition_update')->name('position:update');

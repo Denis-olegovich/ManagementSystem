@@ -64,9 +64,10 @@ class HomeController extends Controller
         return redirect('/home');
     }
 
-    public function getParameter(Request $request){
+    public function postParameter_update(Request $request){
 
         dump($request);
+
 
 
 
@@ -100,7 +101,7 @@ class HomeController extends Controller
         return redirect('/home');
     }
 
-    public function update_parameter(Request $request){
+    public function postPosition_update(Request $request){
 
         dump($request);
 

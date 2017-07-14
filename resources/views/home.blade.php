@@ -38,6 +38,7 @@
                                 </form>  
 
                                 <form method="post" action="{{route('parameter:update')}}">
+                                 {{ csrf_field() }}
 
                                      <input type="text" name="name">
                                      <input type="text" name="value">	
@@ -65,7 +66,7 @@
                                 {{ csrf_field() }}
                                 {{ method_field('delete')}}
 
-                                    <select name="position_id">
+                                    <select name="position_id" id="selectId" onchange="change()">
          	                            <option selected="selected">Выберите дожность</option>
 
          	                            @foreach($positions as $position)
@@ -80,16 +81,32 @@
 
                                 </form> 
 
-                                <form method="Post" action="{{route('position:update')}}">
 
-                                	 <input type="text" name="name">
-                                	 <input type="text" name="value">
+                                <form method="Post" action="{{route('position:update')}}">
+                                    {{ csrf_field() }}
+                                	 <input type="text" name="name" id="text_name">
+                                	 <input type="text" name="name_rp">
 
                                 	<button type="submit">Изменить</button>
 
                                 </form>  
         
                         </div>
+
+
+<script type="text/javascript">
+var select, value, text,tex2;
+
+function change() {
+    select = document.getElementById("selectId");
+    value = select.options[select.selectedIndex].value;
+    text = select.options[select.selectedIndex].text;
+    text2 = select.options[select.selectedIndex].text;
+    alert("Value: " + value + "\nТекст: " + text+"\nТекст: " + text2);
+}                     	
+</script>
+
+                        
 
 @else 
 
