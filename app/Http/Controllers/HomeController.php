@@ -66,8 +66,10 @@ class HomeController extends Controller
 
     public function postParameter_update(Request $request){
 
-        dump($request);
+       //dump($request);
 
+       $parameter = Parametr::find($request->id);
+       dump($parameter);
 
 
 
@@ -103,8 +105,14 @@ class HomeController extends Controller
 
     public function postPosition_update(Request $request){
 
-        dump($request);
+        //dump($request);
 
+        $position = Position::find($request->id);
+        $position->name = $request->name;
+        $position->name_rp = $request->name_rp;
+        $position->save();
+
+        return redirect('/home');
     }
 
 
